@@ -1,5 +1,68 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: "Chat with Softcodes"
+description: "Softcodes is your AI coding assistant inside VS Code. You chat with it in plain language, and it can write, edit, and explain code for you."
 ---
 
+## Quick Setup
+
+- Look for the **Softcodes icon** () in VS Code’s Primary Side Bar. Click it to open the chat panel.
+- Can’t find it? Go to **View \> Open View…** and search for **“Softcodes”**.
+
+## How to talk to Softcodes ? 
+
+**Key idea:** Just type what you want in normal language—no special commands needed.
+
+### Good Example Requests : 
+
+- `Create a new React component called Card in @src/components/Card.tsx with a title and description props`
+- `In @src/styles/global.css, change the font for all headings to Roboto`
+- `Search @src/utils/helpers.js for functions containing "async" and add JSDoc comments describing their behavior`
+- `Refactor the function calculateDiscount in @src/services/pricing.js to use arrow functions and simplify logic`
+- `Add a unit test for the fetchUserData function in @tests/user.test.js`
+
+### Tips for Effective Requests:
+
+1. **Be specific** – `"Fix the bug in calculateTotal that returns incorrect results"` is better than `"Fix the code"`
+2. **Use @ mentions** – Reference files and code directly with `@filename`
+3. **One task at a time** – Break complex work into smaller steps
+4. **Include examples** – Show the style or format you want
+
+### Chat Interface Overview
+
+Everything you need is right in the chat panel.
+
+**Essential Controls:**
+
+- **Chat history** – Review your conversation and task history
+- **Input field** – Type your requests (press Enter to send)
+- **Action buttons** – Approve or reject Softcodes’ suggested changes
+- **Plus button** – Start a new task session
+- **Mode selector** – Choose how Softcodes should approach your task
+
+**Quick Interactions:**
+
+- **File paths** → Open the file
+- **URLs** → Open in browser
+- **Messages** → Expand/collapse details
+- **Code blocks** → Copy button appears
+
+**Status Signals:**
+
+- **Spinning** → Softcodes is working
+- **Red** → Error occurred
+- **Green** → Success
+
+### Common Mistakes to avoid
+
+| Instead of…                      | Try this                                                         |
+| :------------------------------- | :--------------------------------------------------------------- |
+| `"Fix the code"`                 | `"Fix the bug in calculateTotal that returns incorrect results"` |
+| Assuming Softcodes knows context | Use `@` to reference specific files                              |
+| Multiple unrelated tasks         | Submit one focused request at a time                             |
+| Technical jargon overload        | Use clear, straightforward language                              |
+
+**Why it matters:** Softcodes works best when you communicate like you’re talking to a smart teammate who needs clear instructions.
+
+---
+
+**Ready to start coding?** Open the chat panel and describe what you want to build!
