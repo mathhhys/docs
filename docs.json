@@ -16,7 +16,7 @@
           {
             "group": "Getting started",
             "pages": [
-              "index",
+              "InstallingSoftcodes",
               "quickstart",
               "development"
             ]
