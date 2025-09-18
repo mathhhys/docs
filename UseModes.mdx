@@ -1,9 +1,7 @@
 ---
-title: "Use Modes"
+title: "Using Modes"
 description: "Description of your new file."
 ---
-
-# Using Modes
 
 Modes in **Softcodes** are specialized personas that tailor the assistant's behavior to your current task. Each mode offers different capabilities, expertise, and access levels to help you accomplish specific goals.
 
@@ -89,3 +87,101 @@ Four ways to switch modes:
 ## Custom Modes
 
 Create your own specialized assistants by defining tool access, file permissions, and behavior instructions. Custom modes help enforce team standards or create purpose-specific assistants. See **Custom Modes** documentation for setup instructions.
+
+---
+
+If you want, I can also **update the screenshots/inline examples** so that every reference to “Kilo Code” visually reads “Softcodes” for consistency. That would make this version fully polished.
+
+Do you want me to do that?
+
+Vous avez dit :
+
+please reformulate it so we don't know who has made it
+
+ChatGPT a dit :
+
+Absolutely! Here's a neutral, authorship-agnostic version of your text with “Softcodes” throughout and phrasing adjusted so it doesn’t imply any specific creator:
+
+---
+
+# Using Modes
+
+Modes in **Softcodes** are specialized personas designed to adapt the assistant's behavior to the task at hand. Each mode provides distinct capabilities, expertise, and access levels to support specific goals.
+
+## Why Use Different Modes?
+
+- **Task specialization:** Receive assistance tailored to the current task
+- **Safety controls:** Minimize the risk of unintended file modifications
+- **Focused interactions:** Get responses optimized for the activity in progress
+- **Workflow optimization:** Move seamlessly between planning, implementing, debugging, and learning
+
+## Switching Between Modes
+
+There are several ways to switch modes:
+
+1. **Dropdown menu:** Click the selector next to the chat input to choose a mode
+2. **Slash command:** Enter `/architect`, `/ask`, `/debug`, or `/code` in the chat input
+3. **Keyboard shortcut:** Use the following shortcuts to cycle through available modes. After reaching the last mode, the next press returns to the first mode.
+
+| Operating System | Shortcut |
+| :--------------- | :------- |
+| macOS            | ⌘ + .    |
+| Windows          | Ctrl + . |
+| Linux            | Ctrl + . |
+
+4. **Suggested mode changes:** Click on suggested mode switches offered when relevant
+
+---
+
+## Built-in Modes
+
+### Code Mode (Default)
+
+| Aspect               | Details                                                                                                     |
+| :------------------- | :---------------------------------------------------------------------------------------------------------- |
+| **Description**      | A software engineering persona with expertise in programming languages, design patterns, and best practices |
+| **Tool Access**      | Full access to all tool groups: read, edit, browser, command, mcp                                           |
+| **Ideal For**        | Writing code, implementing features, debugging, and general development                                     |
+| **Special Features** | No tool restrictions; supports all coding tasks                                                             |
+
+### Ask Mode
+
+| Aspect               | Details                                                                      |
+| :------------------- | :--------------------------------------------------------------------------- |
+| **Description**      | A technical assistant focused on answering questions without modifying files |
+| **Tool Access**      | Limited access: read, browser, mcp only (cannot edit files or run commands)  |
+| **Ideal For**        | Explaining code, exploring concepts, and learning technical topics           |
+| **Special Features** | Delivers informative responses without changing the project                  |
+
+### Architect Mode
+
+| Aspect               | Details                                                                              |
+| :------------------- | :----------------------------------------------------------------------------------- |
+| **Description**      | A planning-focused persona that helps design systems and create implementation plans |
+| **Tool Access**      | Read, browser, mcp, and restricted edit (markdown files only)                        |
+| **Ideal For**        | System design, high-level planning, and architecture discussions                     |
+| **Special Features** | Follows a structured process from information gathering to detailed planning         |
+
+### Debug Mode
+
+| Aspect               | Details                                                                                  |
+| :------------------- | :--------------------------------------------------------------------------------------- |
+| **Description**      | A troubleshooting specialist experienced in systematic problem-solving and diagnostics   |
+| **Tool Access**      | Full access to all tool groups: read, edit, browser, command, mcp                        |
+| **Ideal For**        | Diagnosing errors, tracking bugs, and resolving complex issues                           |
+| **Special Features** | Applies a methodical approach of analyzing, narrowing possibilities, and fixing problems |
+
+### Orchestrator Mode
+
+| Aspect               | Details                                                                              |
+| :------------------- | :----------------------------------------------------------------------------------- |
+| **Description**      | A workflow coordinator that delegates complex tasks to appropriate specialized modes |
+| **Tool Access**      | Limited access for creating tasks and managing workflows                             |
+| **Ideal For**        | Breaking down projects into manageable subtasks handled by specialized modes         |
+| **Special Features** | Uses delegation tools to assign work to other modes                                  |
+
+---
+
+## Custom Modes
+
+Custom modes allow creating specialized assistants by defining tool access, file permissions, and behavior instructions. These modes can enforce team standards or provide purpose-specific support. Documentation provides detailed setup instructions.
