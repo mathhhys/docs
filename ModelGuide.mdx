@@ -7,26 +7,26 @@ The AI model landscape evolves rapidly, so this guide focuses on what's deliveri
 
 Softcodes Top Performers
 
-| Model            | Context Window           | SWE-Bench Verified  | Human Eval             | LiveCodeBench          | Input Price\*              | Output Price\*         | Best For                                    |
-| :--------------- | :----------------------- | :------------------ | :--------------------- | :--------------------- | :------------------------- | :--------------------- | :------------------------------------------ |
-| GPT-5            | 400K tokens              | 65.00% <sup>1</sup> | 74.9% [Original query] | 94.4% <sup>2</sup>     | \$1.25                     | \$10                   | Latest capabilities, multi-modal coding     |
-| Claude 4 Sonnet  | 200K tokens <sup>3</sup> | 64.93% <sup>1</sup> | 95.1% <sup>4</sup>     | 68.4% <sup>2</sup>     | \$3-6                      | \$15-22.50             | Enterprise code generation, complex systems |
-| Grok Code Fast 1 | 256K tokens <sup>5</sup> | 70.8% <sup>5</sup>  | 92.1% [Original query] | 77.3% <sup>2</sup>     | \$0.20 <sup>6</sup>        | \$1.50 <sup>6</sup>    | Rapid development, cost-performance balance |
-| Qwen3 Coder      | 256K tokens              | 55.40% <sup>1</sup> | 91.7% [Original query] | 61.8% [Original query] | \$0.20                     | \$0.80                 | Pure coding tasks, rapid prototyping        |
-| Gemini 2.5 Pro   | 1M+ tokens <sup>3</sup>  | 53.60% <sup>1</sup> | 99% <sup>3</sup>       | 90.5% <sup>2</sup>     | \$1.25-\$2.50 <sup>7</sup> | \$10-\$15 <sup>7</sup> | Massive codebases, architectural planning   |
+| Model            | Context Window | SWE-Bench Verified | Human Eval | LiveCodeBench | Input Price\* | Output Price\* | Best For                                    |
+| :--------------- | :------------- | :----------------- | :--------- | :------------ | :------------ | :------------- | :------------------------------------------ |
+| GPT-5            | 400K tokens    | 65.00%             | 74.9%      | 94.4%         | \$1.25        | \$10           | Latest capabilities, multi-modal coding     |
+| Claude 4 Sonnet  | 200K tokens    | 64.93%             | 95.1%      | 68.4%         | \$3-6         | \$15-22.50     | Enterprise code generation, complex systems |
+| Grok Code Fast 1 | 256K tokens    | 70.8% <sup>5</sup> | 92.1%      | 77.3%         | \$0.20        | \$1.50         | Rapid development, cost-performance balance |
+| Qwen3 Coder      | 256K tokens    | 55.40%             | 91.7%      | 61.8%         | \$0.20        | \$0.80         | Pure coding tasks, rapid prototyping        |
+| Gemini 2.5 Pro   | 1M+ tokens     | 53.60%             | 99%        | 90.5%         | \$1.25-\$2.50 | \$10-\$15      | Massive codebases, architectural planning   |
 
 \*Per million tokens
 
 ### Budget-Conscious Options
 
-| Model            | Context Window           | SWE-Bench Verified     | Human Eval             | LiveCodeBench          | Input Price\*            | Output Price\* | Notes                                                     |
-| :--------------- | :----------------------- | :--------------------- | :--------------------- | :--------------------- | :----------------------- | :------------- | :-------------------------------------------------------- |
-| DeepSeek V3      | 128K tokens              | 56.7% [Original query] | 87.3% [Original query] | 79.3% <sup>2</sup>     | \$0.14                   | \$0.28         | Exceptional value for daily coding                        |
-| DeepSeek R1      | 128K tokens              | 62.8% [Original query] | 85.9% [Original query] | 86.1% <sup>2</sup>     | \$0.55                   | \$2.19         | Advanced reasoning at budget prices                       |
-| Qwen3 32B        | 128K tokens              | Varies <sup>1</sup>    | Varies <sup>3</sup>    | Varies <sup>1</sup>    | Varies                   | Varies         | Open source flexibility                                   |
-| Z AI GLM 4.5     | 128K tokens              | 54.20% <sup>1</sup>    | 81.2% [Original query] | 49.8% [Original query] | TBD                      | TBD            | MIT license, hybrid reasoning system                      |
-| Llama 4 Maverick | 10M+ tokens <sup>3</sup> | 21.04% <sup>1</sup>    | 62% <sup>3</sup>       | 43.4% <sup>8</sup>     | \$0.19-0.49 <sup>8</sup> | N/A            | Massive context, multimodal, open source                  |
-| Codestral        | 33k tokens <sup>9</sup>  | N/A                    | N/A                    | 48.9% <sup>2</sup>     | N/A                      | N/A            | Outperforms CodeLlama 70B, memory efficient <sup>10</sup> |
+| Model            | Context Window | SWE-Bench Verified | Human Eval | LiveCodeBench | Input Price\* | Output Price\* | Notes                                       |
+| :--------------- | :------------- | :----------------- | :--------- | :------------ | :------------ | :------------- | :------------------------------------------ |
+| DeepSeek V3      | 128K tokens    | 56.7%              | 87.3%      | 79.3%         | \$0.14        | \$0.28         | Exceptional value for daily coding          |
+| DeepSeek R1      | 128K tokens    | 62.8%              | 85.9%      | 86.1%         | \$0.55        | \$2.19         | Advanced reasoning at budget prices         |
+| Qwen3 32B        | 128K tokens    | Varies             | Varies     | Varies        | Varies        | Varies         | Open source flexibility                     |
+| Z AI GLM 4.5     | 128K tokens    | 54.20%             | 81.2%      | 49.8%         | TBD           | TBD            | MIT license, hybrid reasoning system        |
+| Llama 4 Maverick | 10M+ tokens    | 21.04%             | 62%        | 43.4%         | \$0.19-0.49   | N/A            | Massive context, multimodal, open source    |
+| Codestral        | 33k tokens     | N/A                | N/A        | 48.9%         | N/A           | N/A            | Outperforms CodeLlama 70B, memory efficient |
 
 \*Per million tokens
 
@@ -36,23 +36,23 @@ Softcodes Top Performers
 
 Response times significantly impact development flow and productivity:
 
-- Ultra-Fast (\< 2s): Grok Code Fast 1 <sup>11</sup>, Qwen3 Coder
+- Ultra-Fast (\< 2s): Grok Code Fast 1, Qwen3 Coder
 - Fast (2-4s): DeepSeek V3, GPT-5
-- Moderate (4-8s): Claude 4 Sonnet <sup>11</sup>, DeepSeek R1
+- Moderate (4-8s): Claude 4 Sonnet, DeepSeek R1
 - Slower (8-15s): Gemini 2.5 Pro, Z AI GLM 4.5
 
-Impact on Development: Ultra-fast models enable real-time coding assistance and immediate feedback loops.<sup>11</sup> Models with 8+ second latency can disrupt flow state but may be acceptable for complex architectural decisions [Original query].
+Impact on Development: Ultra-fast models enable real-time coding assistance and immediate feedback loops. Models with 8+ second latency can disrupt flow state but may be acceptable for complex architectural decisions.
 
 #### Throughput Analysis
 
 Token generation rates affect large codebase processing:
 
-- High Throughput (150+ tokens/s): GPT-5, Grok Code Fast 1 <sup>6</sup>
+- High Throughput (150+ tokens/s): GPT-5, Grok Code Fast 1 
 - Medium Throughput (100-150 tokens/s): Claude 4 Sonnet, Qwen3 Coder
 - Standard Throughput (50-100 tokens/s): DeepSeek models, Gemini 2.5 Pro
 - Variable Throughput: Open source models depend on infrastructure
 
-Scaling Factors: High throughput models excel when generating extensive documentation, refactoring large files, or batch processing multiple components.<sup>5</sup>
+Scaling Factors: High throughput models excel when generating extensive documentation, refactoring large files, or batch processing multiple components.
 
 #### Reliability & Availability
 
@@ -76,4 +76,4 @@ Optimizing for different project scales:
 | 256K tokens  | ~192,000 words  | Large applications, multiple services | Qwen3 Coder, Grok Code Fast 1          | Full feature context, service integration       |
 | 400K+ tokens | ~300,000+ words | Enterprise systems, full stack apps   | GPT-5, Claude 4 Sonnet, Gemini 2.5 Pro | Architectural overview, system-wide refactoring |
 
-Performance Degradation: Model effectiveness typically drops significantly beyond 400-500K tokens, regardless of advertised limits [Original query]. Plan context usage accordingly.
+Performance Degradation: Model effectiveness typically drops significantly beyond 400-500K tokens, regardless of advertised limits. Plan context usage accordingly.
