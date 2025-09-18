@@ -24,8 +24,12 @@
           {
             "group": "Using Softcodes",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "ChatSoftcodes",
+              "ModelGuide",
+              "UseModes",
+              "AdvancedContext",
+              "Features",
+              "ModelProviders"
             ]
           },
           {
