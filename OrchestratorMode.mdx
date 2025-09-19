@@ -1,5 +1,32 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: "Orchestrator Mode: Managing Complex Tasks"
+description: "Orchestrator Mode lets you divide complex projects into smaller, easier-to-handle components. Imagine it as assigning different parts of your work to dedicated assistants."
 ---
 
+### What Orchestrator Mode Does ? 
+
+**Why use it?**
+
+- **Simplify Big Projects**: Break down multi-step efforts (e.g., launching a complete feature) into clear subtasks (e.g., design, coding, documentation).
+- **Leverage Specialized Modes**: Assign each subtask to the most suitable mode so you can make use of tailored expertise for better results.
+- **Stay Organized and Efficient**: Subtasks run in isolated contexts with their own conversation history. This keeps the parent task free from clutter (like file diffs or long debug logs) and focused on the bigger picture, while only receiving concise summaries once subtasks are completed.
+- **Create Smooth Workflows**: Subtask results can seamlessly feed into one another—for example, architectural decisions naturally flow into implementation.
+
+### How It Works
+
+- **Breaking Down Tasks**: Softcodes analyzes a complex request and proposes splitting it into smaller subtasks.
+- **Subtask Execution**: The main (parent) task pauses while the subtask begins in the right mode.
+- **Completion & Handoff**: Once the subtask is done, Softcodes marks it as complete and provides a summary.
+- **Resume Main Task**: The parent continues with this summary, using it to drive the larger workflow forward.
+
+### Important Details
+
+- **Approval Workflow**: By default, you confirm the creation and completion of subtasks. This can be automated through the _Auto-Approving Actions_ setting.
+- **Context Isolation & Transfer**:
+  - Each subtask runs separately with its own history and doesn’t automatically inherit context from the parent.
+  - Information flows **downward** via initial instructions and **upward** through the summary once the subtask ends.
+- **Navigation**: Softcodes' interface lets you view the task hierarchy and easily switch between active or paused tasks.
+
+### Best Practices
+
+- Keep tasks tightly focused. If a request shifts direction or requires different expertise, spin up a subtask rather than overloading the current one.
