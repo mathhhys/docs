@@ -1,5 +1,140 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: "Browser Use: Automate Web Interactions Inside VS Code"
+description: "Softcodes includes advanced browser automation that lets you interact with websites directly from your editor. You can test web apps, automate browsing steps, and capture screenshots — all without leaving VS Code."
 ---
 
+### Model Requirements
+
+This feature requires an **advanced agentic model**. It has been tested only with **Claude Sonnet 3.5, 3.7, and 4**.
+
+### How It Works
+
+By default, Softcodes runs a built-in, invisible browser that:
+
+- Launches automatically when you ask to open a site
+- Takes screenshots of pages
+- Interacts with page elements (buttons, forms, etc.)
+- Runs quietly in the background
+- Requires **no setup** — everything works inside VS Code
+
+### Typical Workflow
+
+1. Ask Softcodes to open a site.
+2. The browser launches and returns a screenshot.
+3. Request follow-up actions: click, type, scroll, etc.
+4. Softcodes closes the browser when finished.
+
+**Examples:**
+
+- _“Open the browser and load _[_https://softcodes.ai_](https://softcodes.ai)
+- _“Check if my site at _[_http://localhost:3000_](http://localhost:3000)_ shows the footer correctly.”_
+
+### Browser Actions
+
+All interactions happen through the `browser_action` tool. After each action, you receive both a screenshot and logs so you can confirm results.
+
+**Rules:**
+
+- Sessions must start with **launch** and end with **close**.
+- Only **one action** is allowed per message.
+- While the browser is active, no other tools can run.
+- Wait for the screenshot/logs before sending the next action
+
+**Available actions:**
+
+| Action        | Description                         | Example Use                  |
+| :------------ | :---------------------------------- | :--------------------------- |
+| `launch`      | Opens a site in the browser         | Start a new session          |
+| `click`       | Clicks at specified coordinates     | Press a button or link       |
+| `type`        | Enters text into the active element | Fill out forms, search boxes |
+| `scroll_down` | Moves one screen down               | View content below the fold  |
+| `scroll_up`   | Moves one screen up                 | Go back to earlier content   |
+| `close`       | Ends the session                    | Shut down the browser        |
+
+### Settings & Configuration
+
+#### Default Setup
+
+- **Browser tool**: Enabled
+- **Viewport size**: Small Desktop (900×600)
+- **Screenshot quality**: 75%
+- **Remote connection**: Disabled
+
+#### Accessing Settings
+
+Open **Settings → Browser / Computer Use**.
+
+#### Enable or Disable Browser Use
+
+- Master switch for Softcodes's Puppeteer-powered browser.
+- Toggle the checkbox in _Browser / Computer Use_.
+
+#### Viewport Size
+
+- Controls browser resolution.
+- **Tradeoff**: Larger viewports show more but increase token usage.
+- Options:
+  - Large Desktop (1280×800)
+  - Small Desktop (900×600) _default_
+  - Tablet (768×1024)
+  - Mobile (360×640)
+
+#### Screenshot Quality
+
+- Defines WebP compression level.
+- **Default**: 75%
+- **Ranges:**
+  - 40–50% → Lightweight, text-heavy pages
+  - 60–70% → Balanced for most sites
+  - 80%+ → Maximum clarity for detailed visuals
+
+#### Remote Browser Connection
+
+- Lets Softcodes attach to a running Chrome instead of its built-in browser.
+- **Advantages:**
+  - Works in DevContainers and remote setups
+  - Keeps sessions logged in
+  - Allows custom Chrome profiles/extensions
+- **Requirements:** Chrome must be launched with **remote debugging enabled**.
+
+To enable:
+
+1. Check _Use remote browser connection_.
+2. Click _Test Connection_ to confirm.
+
+### Common Use Cases
+
+- **DevContainers**: Connect containerized VS Code to a host Chrome instance.
+- **Remote Development**: Use your local Chrome while coding remotely.
+- **Custom Profiles**: Run sessions with specific extensions or settings.
+
+### Connecting to a Visible Chrome Window
+
+Run Chrome with remote debugging flags:
+
+**macOS**
+
+```
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome \
+--remote-debugging-port=9222 \
+--user-data-dir=/tmp/chrome-debug \
+--no-first-run
+```
+
+**Windows**
+
+```
+"C:\Program Files\Google\Chrome\Application\chrome.exe" ^
+--remote-debugging-port=9222 ^
+--user-data-dir=C:\chrome-debug ^
+--no-first-run
+```
+
+**Linux**
+
+```
+google-chrome \
+--remote-debugging-port=9222 \
+--user-data-dir=/tmp/chrome-debug \
+--no-first-run
+```
