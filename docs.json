@@ -33,10 +33,12 @@
           {
             "group": "Features",
             "pages": [
-              "",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
+              "OrchestratorMode",
+              "TaskTodoList",
+              "GenerateCommitMessages",
+              "BrowserUse",
+              "CodeActions",
+              "SystemNotifications"
             ]
           },
           {
