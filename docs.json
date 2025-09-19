@@ -28,8 +28,27 @@
               "ModelGuide",
               "UseModes",
               "AdvancedContext",
-              "Features",
-              "ModelProviders"
+              {
+                "group": "Features",
+                "expanded": false,
+                "page": [
+                  "OrchestratorMode",
+                  "TaskTodoList",
+                  "BrowserUse",
+                  "GenerateCommitMessages",
+                  "CodeActions",
+                  "SystemNotifications"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Useful Concepts",
+            "pages": [
+              "essentials/markdown",
+              "essentials/code",
+              "essentials/images",
+              "essentials/reusable-snippets"
             ]
           },
           {

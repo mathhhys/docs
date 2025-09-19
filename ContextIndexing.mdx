@@ -1,0 +1,113 @@
+---
+title: "Context & Indexing"
+description: "Context mentions are a powerful way to provide an assistant with specific information about a project, making responses more accurate and efficient. Mentions can refer to files, folders, problems, terminal output, Git commits, and even external URLs. All mentions begin with the @ symbol."
+---
+
+### Overview
+
+Typing **@** in the chat input opens a dropdown menu of available mentions. These can then be selected to insert project-related content directly into the conversation.
+
+### Types of Mentions
+
+### File Mentions
+
+File mentions insert the contents of a file into the conversation for direct reference.
+
+- **Format:** `@/path/to/file.ts`
+- **Provides:** File contents with line numbers
+- **Supports:** Text files, PDFs, and DOCX files (text extracted)
+- **Best for:** Requesting explanations, debugging, or analysis of specific code
+- **Limitation:** Very large files may be truncated; binary files not supported
+
+**Example:**\
+_"Explain the function in @/src/utils.ts"_
+
+### Folder Mentions
+
+Folder mentions display the structure of a directory in a tree format.
+
+- **Format:** `@/path/to/folder/` (include trailing slash)
+- **Provides:** Immediate child files and directories in tree form
+- **Best for:** Understanding project layout
+- **Tip:** Combine with file mentions for deeper inspection
+
+**Example:**\
+_"What files are in @/src/components/?"_
+
+### Problem Mentions
+
+Problems mentions insert diagnostic errors and warnings from the project’s environment.
+
+- **Format:** `@problems`
+- **Provides:** Errors and warnings with file paths, line numbers, and messages
+- **Groups:** Organized by file for clarity
+- **Best for:** Fixing issues without manual copy-pasting
+
+**Example:**\
+_"@problems Fix all errors in my code"_
+
+### Terminal Mentions
+
+Terminal mentions capture recent command execution and output.
+
+- **Format:** `@terminal`
+- **Provides:** Last command and its output
+- **Preserves:** Current terminal state
+- **Best for:** Debugging build errors or analyzing command results
+- **Limitation:** Limited to visible terminal buffer
+
+**Example:**\
+_"Fix the errors shown in @terminal"_
+
+### Git Mentions
+
+Git mentions allow referencing commits or uncommitted changes.
+
+- **Commit**
+  - **Format:** `@<commit-hash>`
+  - **Provides:** Commit message, author, date, and diff
+- **Working Changes**
+  - **Format:** `@git-changes`
+  - **Provides:** Output of `git status` and diff of uncommitted changes
+- **Limitation:** Only works inside Git repositories
+
+**Example:**\
+_"What changed in commit @a1b2c3d?"_
+
+### URL Mentions
+
+URL mentions fetch and convert website content into Markdown format for use in the conversation.
+
+- **Format:** `@https://example.com`
+- **Processing:** Fetches page content with scripts/styles removed
+- **Output:** Markdown for readability
+- **Limitation:** Complex pages may not render perfectly
+
+**Example:**\
+_"Summarize @_[_https://docusaurus.io/_](https://docusaurus.io/)_"_
+
+### How to Use Mentions
+
+1. Type **@** in the chat input to trigger the dropdown.
+2. Filter by typing or navigate with arrow keys.
+3. Select with **Enter** or mouse click.
+4. Combine multiple mentions for more complex requests.
+
+**Example:**\
+_"Fix @problems in @/src/component.ts using the pattern from commit @a1b2c3d"_
+
+The dropdown suggests:
+
+- Recently opened files
+- Visible folders
+- Recent Git commits
+- Special keywords (`problems`, `terminal`, `git-changes`)
+
+### Best Practices
+
+- **Use specific paths:** Reference exact files instead of describing them
+- **Start from workspace root:** e.g., `@/src/file.ts`, not `@C:/Projects/src/file.ts`
+- **Verify references:** Ensure paths and commit hashes are correct
+- **Click mentions in chat history:** Quickly open or view referenced files
+- **Avoid copy-paste:** Mentions reduce manual steps
+- **Combine mentions:** Use multiple mentions for richer context
