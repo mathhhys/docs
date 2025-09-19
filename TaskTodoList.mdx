@@ -1,5 +1,62 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: "Task Todo List: Stay on Top of Every Step"
+description: "The idea: Never lose sight of your development workflow. Task Todo Lists give you interactive, persistent checklists that live directly in your chat interface.
+
+Why it matters: Complex projects often involve many moving pieces. Without structure, you risk skipping steps, duplicating effort, or forgetting what’s next."
 ---
 
+### When Todo Lists Are Created
+
+**Automatic triggers:**
+
+- Multi-step or complex tasks
+- Working inside _Architect mode_
+- Workflows with several dependent phases
+
+**Manual triggers:**
+
+- Ask Kilo to _“use the update_todo_list tool”_
+- Say _“create a todo list”_
+
+👉 Softcodes decides the checklist content, but you can provide feedback during approval dialogs.
+
+### Before vs. After
+
+- **Old way:** You tried to juggle steps in your head or scattered notes, often second-guessing what came next.
+- **New way:** Softcodes generates structured, auto-updating checklists that show you exactly where you are and what’s ahead.
+
+### Where Todo Lists Show Up
+
+1. **Task Header Summary**
+   - At-a-glance progress view with your next key item.
+2. **Interactive Tool Block**
+   - Full checklist inside the chat where you can:
+     - View all tasks and their current status
+     - Edit descriptions when prompted for approval
+     - Stage changes with the **Edit** button
+3. **Environment Details**
+   - A background _REMINDERS_ table that helps Softcodes stay aligned with current progress.
+
+### Task Status Indicators
+
+- **Pending** → Empty checkbox (not started)
+- **In Progress** → Yellow dot (currently active)
+- **Completed** → Green checkmark (finished)
+
+### FAQs
+
+**Can I make my own todo lists?**\
+Yes — just ask Softcodes to use the `update_todo_list` tool. Softcodes, however, controls the structure and workflow.
+
+**What about small tasks?**\
+Todo lists are generally skipped for simple requests since the overhead isn’t worth it.
+
+**Why can’t I edit the list directly?**\
+By design, Softcodes manages the list to keep task tracking consistent. You give input, Kilo updates the list.
+
+### Pro Tip: Auto-Approval
+
+- **What it does:** Approves todo list changes automatically, no confirmation needed.
+- **When to use:** Long workflows where interruptions slow you down.
+- **How to enable:** Check the _Update Todo List auto-approval_ setting.
+- **Trade-off:** Faster progress, but less manual control.
