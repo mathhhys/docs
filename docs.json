@@ -27,23 +27,20 @@
               "ChatSoftcodes",
               "ModelGuide",
               "UseModes",
-              "AdvancedContext",
-              {
-                "group": "Features",
-                "expanded": false,
-                "page": [
-                  "OrchestratorMode",
-                  "TaskTodoList",
-                  "BrowserUse",
-                  "GenerateCommitMessages",
-                  "CodeActions",
-                  "SystemNotifications"
-                ]
-              }
+              "AdvancedContext"
             ]
           },
           {
-            "group": "Useful Concepts",
+            "group": "Features",
+            "pages": [
+              "",
+              "essentials/code",
+              "essentials/images",
+              "essentials/reusable-snippets"
+            ]
+          },
+          {
+            "group": "Model Providers",
             "pages": [
               "essentials/markdown",
               "essentials/code",
