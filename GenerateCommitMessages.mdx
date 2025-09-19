@@ -1,5 +1,114 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: "Generate Commit Messages: Automate Clear, Conventional Commits"
+description: "With this feature, Softcodes can automatically create meaningful commit messages based on your staged git changes. It reviews your staged files, interprets the intent of your edits, and produces messages that align with best practices like Conventional Commits."
 ---
 
+### Important Note
+
+This tool only works with staged files. Be sure to run `git add` (or use the VS Code Git interface) before generating a commit message.
+
+### How It Works
+
+The commit message generator:
+
+- Looks exclusively at staged files (ignores unstaged and untracked ones).
+- Uses AI to interpret the context and purpose of your changes.
+- Produces descriptive messages that explain **what was changed and why**, following the Conventional Commits format (customizable if needed).
+
+### Using the Feature
+
+1. Stage your changes with `git add` or via the VS Code Git sidebar.
+2. In VS Code’s Source Control panel, look for the **Softcodes icon** beside the commit field.
+3. Click the icon → Softcodes generates a commit message.
+4. Review and edit the draft message before committing.
+
+### Conventional Commit Format
+
+By default, messages follow the structure :
+
+```
+<type>(<scope>): <description>
+
+<body>
+```
+
+**Common commit types include:**
+
+- **feat**: New features
+- **fix**: Bug fixes
+- **docs**: Documentation updates
+- **style**: Formatting / non-functional code changes
+- **refactor**: Code restructuring
+- **test**: Adding or updating tests
+- **chore**: Maintenance tasks
+
+### Customization
+
+**Commit Template Settings**
+
+- Open **Settings → Prompts → Commit Message Generation**.
+- Adjust the prompt template to reflect your team’s style.
+- Options include:
+  - Switching to a different commit format.
+  - Adding project-specific details.
+  - Embedding instructions for particular change types.
+
+**API Configuration**
+
+- In the same settings area, go to _API Configuration_.
+- Pick a specific API profile or stick with the default.
+- Tip: Create a lightweight, cost-effective profile just for commit generation.
+
+### Best Practices
+
+- **Stage wisely**: Group related edits into one commit for better messages. Use `git add -p` for partial staging.
+- **Always review**: Double-check generated messages, add missing context, and ensure accuracy.
+- **Refine templates**: Adapt the prompt template to include terminology or rules unique to your project.
+
+### Examples of Generated Messages
+
+- **Feature**
+
+  ```
+  feat(auth): add Google OAuth2 integration
+  
+  Implement OAuth2 flow with:
+  - Client configuration
+  - Profile retrieval
+  - Token refresh handling
+  
+  ```
+- **Fix**
+
+  ```
+  fix(api): resolve race condition in user data fetching
+  
+  Add retry logic and error handling to prevent
+  concurrent requests from corrupting results
+  
+  ```
+- **Docs**
+
+  ```
+  docs(readme): update installation guide
+  
+  Clarify setup steps and add missing dependencies
+  for new contributors
+  ```
+
+### Troubleshooting
+
+- **No staged changes?** → Run `git add <file>` or `git add .`.
+- **Poor quality messages?** →
+  - Check staging (don’t lump unrelated changes).
+  - Fine-tune your template.
+  - Try a different API model.
+- **Integration issues?** →
+  - Confirm the repo is initialized.
+  - Ensure VS Code recognizes Git.
+  - Verify Git is installed and on your system PATH.
+
+### Related Tools
+
+- **API Profiles**: Configure dedicated models for faster commit generation.
+- **Settings Management**: Centralize and adjust all Softcodes preferences.
