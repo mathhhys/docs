@@ -4,8 +4,8 @@
   "name": "Softcodes",
   "colors": {
     "primary": "#0052CC",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "light": "#0052CC",
+    "dark": "#0052CC"
   },
   "favicon": "/favicon.svg",
   "navigation": {
