@@ -1,5 +1,89 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: "Code Actions: AI Help Where You Need It"
+description: "Code Actions in VS Code provide quick fixes, refactorings, and other helpful suggestions right in the editor. Softcodes extends this system by offering AI-powered actions to help you better understand, improve, or fix your code."
 ---
 
+### What Are Code Actions?
+
+Code Actions appear as a **lightbulb icon (💡)** in the editor gutter (to the left of the line numbers). You can also access them via:
+
+- **Right-click menu**
+- **Keyboard shortcut**: `Ctrl+.` (Windows/Linux) or `Cmd+.` (macOS)
+- **Command Palette**
+
+They appear when:
+
+- You highlight a section of code.
+- Your cursor is on a line with a diagnostic (error, warning, or hint).
+- You explicitly invoke a code action command.
+
+Clicking the lightbulb or running the command opens a menu of available actions.
+
+### Softcodes' Code Actions
+
+Softcodes adds several specialized actions:
+
+- **Add to Context** → Sends the selected code (with filename + line numbers) into your chat with Softcodes. Appears first in the menu for quick access.
+- **Explain Code** → Asks Softcodes to describe what the selected code does.
+- **Fix Code** → Lets Softcodes resolve problems in the selection (only shown when diagnostics are present).
+- **Improve Code** → Requests suggestions to make the code cleaner, faster, or more maintainable.
+
+### Add to Context: Deep Dive
+
+The **Add to Context** option is designed for speed. It pushes your selected snippet into chat, including the file path and exact line numbers. This gives Softcodes full context to deliver more precise help.
+
+**Example Chat Message:**
+
+```kotlin
+Can you explain this function?  
+@myFile.js:15:25
+```
+
+Here, `@myFile.js:15:25` indicates the code snippet inserted through Add to Context.
+
+Each action can be performed:
+
+- **In a New Task** → Start a separate conversation around this code.
+- **In the Current Task** → Add the action into your ongoing thread.
+
+### How to Use Code Actions
+
+**1. From the Lightbulb (💡)**
+
+- Select a line or block of code.
+- Look for the lightbulb icon in the gutter.
+- Click the icon → choose a Softcodes action.
+- Review Softcodes' suggestion in the chat panel → approve or reject.
+
+**2. From the Right-Click Menu**
+
+- Highlight code.
+- Right-click → select **Softcodes**.
+- Choose an action from the submenu.
+- Review and approve/reject in chat.
+
+**3. From the Command Palette**
+
+- Highlight code.
+- Open Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`).
+- Type “Softcodes” and select an action (e.g., _Explain Code_).
+- Review Softcodes proposed solution in the chat.
+
+### Customizing Code Action Prompts
+
+You can tailor the instructions behind each Code Action to better fit your workflow.
+
+1. Open the **Prompts** tab from Softcodes' top menu.
+2. Find **Support Prompts** (Enhance Prompt, Explain Code, Fix Code, Improve Code).
+3. Edit the text for the action you want to adjust.
+   - Use placeholders like `${filePath}` or `${selectedText}` to inject context automatically.
+4. Click **Done** to save changes.
+
+### Why Use Softcodes' Code Actions?
+
+By embedding AI-powered assistance directly into your editor, you can:
+
+- Quickly understand unfamiliar code.
+- Get instant fixes for errors and warnings.
+- Improve readability and maintainability without context switching.
+- Share relevant code context seamlessly into your chat with Softcodes.
