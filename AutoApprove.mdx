@@ -1,0 +1,111 @@
+---
+title: "Auto-Approving Actions in Softcodes"
+description: "⚠️ Security Notice: Auto-approval bypasses confirmation prompts, granting Softcodes direct access to your system. This can expose you to risks such as accidental data loss, file corruption, or the execution of harmful operations. Command-line access is particularly sensitive, as it can run destructive commands without warning. Only enable auto-approval for actions you fully trust.
+
+Auto-approve features speed up workflows by removing repetitive confirmations, but they also increase your exposure to security risks."
+---
+
+## Quick Start
+
+1. Open the **Auto-Approve Toolbar** above the chat input.
+2. Choose which actions **Softcodes** can perform without asking permission.
+3. Use the **master toggle** (leftmost checkbox) to enable or disable all permissions at once.
+
+## Permissions Overview
+
+| Permission             | What it does                                         | Risk Level  |
+| :--------------------- | :--------------------------------------------------- | :---------- |
+| Read files/directories | Lets **Softcodes** access files without confirmation | Medium      |
+| Edit files             | Allows file modifications without asking             | High        |
+| Execute commands       | Runs whitelisted terminal commands automatically     | High        |
+| Use browser            | Controls a headless browser session                  | Medium      |
+| Access MCP services    | Uses configured MCP servers                          | Medium-High |
+| Switch modes           | Changes between **Softcodes** operating modes        | Low         |
+| Manage subtasks        | Creates and completes subtasks automatically         | Low         |
+| Retry failed requests  | Automatically retries failed API requests            | Low         |
+| Answer follow-ups      | Picks a default answer after a timer expires         | Low         |
+| Update todo list       | Tracks progress and updates task lists automatically | Low         |
+
+## Master Toggle
+
+The **global checkbox** manages all permissions at once:
+
+- Switch **off** when handling sensitive work.
+- Switch **on** when speed matters more than safety.
+- Toggle depending on whether you’re exploring or editing critical files.
+
+## Advanced Settings
+
+The advanced panel gives more precise control and shows related risks.
+
+### Read Operations
+
+- **Setting**: Auto-approve read-only operations
+- **Effect**: Allows **Softcodes** to open and read files instantly.
+- **Risk**: Medium — could expose sensitive information.
+
+### Write Operations
+
+- **Setting**: Auto-approve write operations
+- **Effect**: Lets **Softcodes** create or modify files automatically.
+- **Delay control**: Adjustable delay (default 1000ms) lets diagnostic tools run checks before continuing.
+- **Risk**: High — file modification can break projects if unchecked.
+
+### Browser Actions
+
+- **Setting**: Auto-approve browser automation
+- **Effect**: Lets **Softcodes** open sites, click elements, and navigate pages.
+- **Risk**: Medium — browser interactions can leak information or trigger unwanted actions.
+
+### API Requests
+
+- **Setting**: Auto-retry failed requests
+- **Effect**: Softcodes retries automatically when a server returns an error.
+- **Delay**: Adjustable (default 5s) for balancing speed with API rate limits.
+- **Risk**: Low — only affects performance and server load.
+
+### MCP Tools
+
+- **Setting**: Auto-approve MCP tool use
+- **Effect**: Grants **Softcodes** permission to use configured MCP services.
+- **Risk**: Medium–High, depending on tool configuration.
+
+### Mode Switching
+
+- **Setting**: Auto-approve mode changes
+- **Effect**: Softcodes changes between working modes (e.g., coding, planning).
+- **Risk**: Low — mainly affects behavior, not files.
+
+### Subtasks
+
+- **Setting**: Auto-approve subtask creation and completion
+- **Effect**: Softcodes organizes subtasks without interruptions.
+- **Risk**: Low — workflow-related only.
+
+### Command Execution
+
+- **Setting**: Auto-approve whitelisted command execution
+- **Effect**: Executes allowed terminal commands automatically.
+- **Controls**: Whitelist by prefix (e.g., “git”), avoid `*` wildcard in production.
+- **Risk**: High — direct command execution is inherently dangerous.
+
+### Follow-Up Questions
+
+- **Setting**: Auto-select default answers
+- **Effect**: Chooses the first suggested answer after a configurable timer (default 60s).
+- **Controls**: Timer can be paused, overridden, or cancelled at any moment.
+- **Risk**: Low — useful for overnight or repetitive runs.
+
+### Todo List Updates
+
+- **Setting**: Auto-approve updates to task tracking
+- **Effect**: Marks tasks complete, updates progress, and reorganizes automatically.
+- **Risk**: Low — improves workflow visibility without altering files.
+
+---
+
+## Practical Use Cases
+
+- **Sensitive work**: Disable write and command execution permissions.
+- **Rapid development**: Enable most permissions for faster iteration.
+- **Long projects**: Allow subtasks, todo updates, and API retries for smooth continuity.

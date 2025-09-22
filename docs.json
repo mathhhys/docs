@@ -52,8 +52,8 @@
           {
             "group": "Useful Concepts",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
+              "AutoApprove",
+              "SuggestedResponse",
               "essentials/images",
               "essentials/reusable-snippets"
             ]
