@@ -37,8 +37,7 @@
               "TaskTodoList",
               "GenerateCommitMessages",
               "BrowserUse",
-              "CodeActions",
-              "SystemNotifications"
+              "CodeActions"
             ]
           },
           {
@@ -153,15 +152,15 @@
   },
   "contextual": {
     "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
   },
   "footer": {
     "socials": {
