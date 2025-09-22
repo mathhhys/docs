@@ -62,33 +62,16 @@
           {
             "group": "Advanced tools",
             "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "AdvancedContext",
+              "RulesAndInstructions",
+              "AISettings"
             ]
           },
           {
-            "group": "Customization",
+            "group": "Extending Softcodes",
             "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
-            ]
-          },
-          {
-            "group": "Softcodes for Teams",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
-            ]
-          },
-          {
-            "group": "Extending Softcodes Intelligence",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "UsingLocalModels",
+              "ModelContextProtocol"
             ]
           }
         ]
