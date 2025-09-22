@@ -2,3 +2,133 @@
 title: "Advanced & Deep Context "
 description: "Description of your new file."
 ---
+
+## Memory Bank Overview
+
+**Memory Bank** allows Softcodes to maintain persistent understanding of your project across sessions. Without it, AI assistants lose context between sessions, requiring repeated explanations of architecture, goals, technologies, and progress. This memory gap reduces efficiency and increases errors or misalignment in task execution.
+
+### How Memory Bank Works
+
+Memory Bank is structured documentation stored in markdown files within your project repository. Softcodes reads these files at the start of each session to rebuild project context automatically. Active Memory Bank usage is indicated by:
+
+```
+[Memory Bank: Active]
+```
+
+This provides a summary of project understanding before tasks begin.
+
+### Core Memory Bank Files
+
+| File              | Purpose                                                            |
+| :---------------- | :----------------------------------------------------------------- |
+| `brief.md`        | High-level project overview, goals, and foundation                 |
+| `product.md`      | Explains purpose, problems solved, and user experience             |
+| `context.md`      | Frequently updated; tracks current work, decisions, and next steps |
+| `architecture.md` | System architecture, design patterns, and technical decisions      |
+| `tech.md`         | Technology stack, dependencies, and development setup              |
+
+**Additional files** can document complex features, integrations, testing strategies, or deployment procedures. `tasks.md` optionally stores repetitive workflows for future reuse.
+
+### Key Benefits
+
+- **Language-agnostic:** Works with any language or framework
+- **Context preservation:** Maintains knowledge without re-scanning all files
+- **Faster startup:** Softcodes immediately understands your project
+- **Self-documenting:** Generates structured documentation as a byproduct
+
+### Using Memory Bank
+
+1. Create `.softcodes/rules/memory-bank/` folder in your project.
+2. Add initial project brief in `brief.md`.
+3. Initialize Memory Bank using:
+
+   ```
+   initialize memory bank
+   
+   ```
+4. Verify and update files for accuracy.
+
+**Updating Memory Bank:**
+
+- After significant changes or pattern discovery:
+
+  ```
+  update memory bank
+  
+  ```
+- To document repetitive tasks:
+
+  ```
+  add task
+  
+  ```
+
+**Status Indicators:**
+
+- `[Memory Bank: Active]` – Memory Bank is loaded
+- `[Memory Bank: Missing]` – Files missing or empty
+
+### Best Practices
+
+- Start with a simple project brief and evolve documentation organically.
+- Review files after initialization.
+- Update after milestones or major changes.
+- Keep files concise and focused; use additional files for detailed documentation.
+
+---
+
+## Codebase Indexing Overview
+
+Codebase Indexing provides **semantic search** across your project using AI embeddings, enabling Softcodes to find relevant code by meaning rather than exact matches.
+
+### Key Features
+
+- **Semantic search:** Locate functions, classes, and patterns using natural language queries.
+- **Enhanced AI understanding:** Softcodes can navigate and modify code efficiently.
+- **Cross-project discovery:** Search across the full repository.
+
+### Setup Requirements
+
+1. **Embedding Provider:** Choose OpenAI, Gemini, or Ollama.
+2. **Vector Database:** Qdrant for storing embeddings. Options: local, cloud, or self-hosted.
+
+**Quick Local Setup (Docker):**
+
+```
+docker run -p 6333:6333 qdrant/qdrant
+```
+
+3. Configure provider API keys and Qdrant URL in Softcodes settings.
+4. Enable Codebase Indexing toggle to start parsing and embedding project files.
+
+### How Files Are Processed
+
+- Tree-sitter parses semantic blocks.
+- Minimum block size: 100 characters; maximum: 1,000 characters.
+- Automatic exclusion: binaries, large files (\>1MB), dependencies, `.git` folders, ignored files.
+- Incremental updates track changes and Git branch switches.
+
+### Best Practices
+
+- Use precise references (file paths, function names).
+- Break large tasks into smaller sub-tasks.
+- Summarize large files instead of including everything in a prompt.
+- Prioritize recent history for context.
+
+### Example Workflow
+
+Refactoring a large file `src/components/MyComponent.tsx`:
+
+1. Overview: `@/src/components/MyComponent.tsx` – list functions and classes
+2. Target specific function: `@/src/components/MyComponent.tsx Refactor processData using async/await`
+3. Apply iterative, incremental changes
+
+This approach ensures context efficiency and accuracy with large files.
+
+---
+
+### Summary
+
+- **Memory Bank** provides persistent project knowledge across sessions.
+- **Codebase Indexing** enables semantic search and faster navigation of large codebases.
+- Together, they transform Softcodes into a context-aware, efficient development assistant capable of handling large projects while minimizing repetitive explanations.
