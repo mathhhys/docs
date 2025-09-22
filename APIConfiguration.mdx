@@ -1,0 +1,71 @@
+---
+title: "API Configuration"
+description: "API Configuration Profiles let you create and switch between different AI provider setups. Each profile can have its own models, parameters, and authentication—making it easy to optimize Softcodes for different workflows."
+---
+
+## Why Profiles Matter
+
+- Quickly toggle between providers without reconfiguring settings each time
+- Experiment with different models for specific tasks
+- Save and reuse multiple optimized setups (e.g., “Fast Debugging” vs. “Deep Reasoning”)
+
+## What Profiles Can Include
+
+Each profile stores:
+
+- **API Providers** → OpenAI, Anthropic, OpenRouter, Glama, etc.
+- **API Keys & Auth** → Securely stored credentials per provider
+- **Model Selection** → Choose from models like _o3-mini-high_, _Claude 3.7 Sonnet_, _DeepSeek R1_
+- **Model Parameters** → Adjust temperature, max tokens, or provider-specific options
+- **Thinking Budgets** → Control depth of reasoning where supported
+- **Provider-Specific Features** → Settings unique to certain providers/models
+
+⚠️ **Note:** Available options vary by provider and even by model.
+
+## Creating & Managing Profiles
+
+### **1. Creating a Profile**
+
+1. Open **Settings → Providers**
+2. Click the **“+” button** next to the profile selector
+3. Enter a **name** for your new profile
+4. Configure:
+   - Select an **API provider**
+   - Enter your **API key**
+   - Pick a **model**
+   - Adjust **parameters** (temperature, tokens, etc.)
+
+### **2. Switching Profiles**
+
+- **From Settings** → Use the profile dropdown to switch configurations
+- **During Chat** → Use the **API Configuration dropdown** in the chat panel
+
+### **3. Pinning & Sorting Profiles**
+
+- Hover over a profile in the dropdown → click the **pin icon**
+- Pinned profiles appear at the **top** (alphabetical order)
+- Unpinned profiles appear **below a separator** (also alphabetical)
+- Click the pin again to unpin
+
+👉 Perfect for quickly jumping between your most-used profiles.
+
+### **4. Editing & Deleting Profiles**
+
+- Select the profile in **Settings** to update details
+- Rename → Click the **pencil icon**
+- Delete → Click the **trash icon** (cannot delete your last remaining profile)
+
+## Linking Profiles to Modes
+
+In the **Prompts tab**, you can:
+
+- Associate specific profiles with different **Modes** (e.g., Chat, Code Generation, Debugging)
+- The system automatically remembers which profile you last used with each mode
+
+➡️ This ensures smoother, **mode-specific workflows** without constant switching.
+
+## Security Note
+
+- All API keys are stored in **VS Code’s Secret Storage**
+- Keys are **never saved in plain text**
+- Credentials remain secure across sessions

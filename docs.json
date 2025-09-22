@@ -43,10 +43,10 @@
           {
             "group": "Model Providers",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
+              "FirstSteps",
+              "APIConfiguration",
+              "SoftcodesProvider",
+              "AddCredits"
             ]
           },
           {
