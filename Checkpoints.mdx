@@ -1,0 +1,165 @@
+---
+title: "Checkpoints in Softcodes"
+description: "Checkpoints automatically version your workspace files during Softcodes tasks. They let you explore AI suggestions safely, recover from unwanted changes, and compare different approaches without losing work."
+---
+
+## Benefits of Checkpoints
+
+Checkpoints allow you to:
+
+- Experiment with AI-suggested changes safely
+- Restore your workspace to previous states
+- Compare alternative implementations
+- Revert to earlier project versions without losing progress
+
+## Important Notes
+
+- Checkpoints are **enabled by default**.
+- **Git** must be installed for checkpoints to function (see installation instructions below).
+- No GitHub account or repository is required.
+- No personal Git configuration is needed.
+- The **shadow Git repository** operates independently from any existing Git setup in your project.
+
+## Configuration Options
+
+Access checkpoint settings in Softcodes:
+
+1. Click the **gear icon** → **Checkpoints**.
+2. Enable or disable automatic checkpoints using the checkbox.
+
+## How Checkpoints Work
+
+Softcodes captures snapshots of your project using a **shadow Git repository**, separate from your main version control. These snapshots, called **checkpoints**, automatically record changes whenever tasks start, files are modified, or commands are executed.
+
+Checkpoints track:
+
+- File content changes
+- New files
+- Deleted files
+- Renamed files
+- Binary file modifications
+
+## Working with Checkpoints
+
+Checkpoints integrate directly into your workflow through the chat interface and appear in two forms:
+
+1. **Initial Checkpoint** – marks your starting project state.
+2. **Regular Checkpoints** – created after file edits or command execution.
+
+### Viewing Differences
+
+To compare your workspace to a previous checkpoint:
+
+1. Locate the checkpoint in your chat history.
+2. Click **View Differences**.
+3. Review changes:
+   - Added lines → **green**
+   - Removed lines → **red**
+   - Modified files show detailed line changes
+   - Renamed/moved files tracked with path updates
+   - New/deleted files clearly marked
+
+### Restoring Checkpoints
+
+To restore a project to a previous checkpoint:
+
+1. Locate the checkpoint in your chat history.
+2. Click **Restore Checkpoint**.
+3. Choose a restoration option:
+
+- **Restore Files Only** – Reverts only workspace files; chat context remains. Useful for comparing alternative implementations without losing conversation history. No confirmation required.
+- **Restore Files & Task** – Reverts workspace files **and** conversation messages after the checkpoint. Requires confirmation as it cannot be undone.
+
+## Limitations and Considerations
+
+- **Scope**: Only changes made during active Softcodes tasks are tracked.
+- **External changes**: Manual edits outside tasks are not included.
+- **Large files**: Very large binary files may affect performance.
+- **Unsaved work**: Restoration overwrites unsaved workspace changes.
+
+## Technical Implementation
+
+### Checkpoint Architecture
+
+1. **Shadow Git Repository** – Stores checkpoint states independently.
+2. **Checkpoint Service** – Manages Git operations:
+   - Repository initialization
+   - Checkpoint creation and storage
+   - Diff computation
+   - State restoration
+3. **UI Components** – Chat interface elements for interacting with checkpoints.
+
+### Restoration Process
+
+When restoring:
+
+- Performs a **hard reset** to the selected checkpoint commit.
+- Copies files from the shadow repository to your workspace.
+- Updates internal checkpoint tracking state.
+
+### Storage Type
+
+- Task-scoped: Checkpoints are specific to individual tasks.
+
+### Diff Computation
+
+- Uses Git to produce structured file differences:
+  - Line-by-line changes for modified files
+  - Binary files handled correctly
+  - Renamed/moved files tracked accurately
+  - New and deleted files clearly identified
+
+### File Exclusion and Ignore Patterns
+
+- **Built-in Exclusions** – ignores:
+  - Build artifacts and dependency folders (`node_modules/`, `dist/`, `build/`)
+  - Media and binary assets
+  - Cache/temp files (`.cache/`, `.tmp/`, `.bak`)
+  - Sensitive configuration (`.env`)
+  - Large data files, logs, and databases
+- **.gitignore Support** – respects workspace `.gitignore` files; excluded files are not checkpointed.
+- **.softcodesignore Behavior** – separate from checkpoint tracking; AI access restrictions do not affect versioning.
+
+### Nested Git Repositories
+
+- Temporarily renames nested `.git` directories to `.git_disabled` during operations.
+- Restores them afterward to maintain functionality.
+- Ensures proper tracking without affecting nested repositories.
+
+### Concurrency Control
+
+- Operations are queued to prevent simultaneous Git actions that could corrupt state.
+
+## Git Installation
+
+Checkpoints rely on Git via the `simple-git` library.
+
+### macOS
+
+```
+brew install git
+# or
+xcode-select --install
+git --version
+```
+
+### Windows
+
+1. Download Git: https://git-scm.com/download/win
+2. Follow installer instructions (default options recommended)
+3. Verify:
+
+```
+git --version
+```
+
+### Linux
+
+- Debian/Ubuntu: `sudo apt install git`
+- Fedora: `sudo dnf install git`
+- Arch: `sudo pacman -S git`
+- Verify: `git --version`
+
+---
+
+Checkpoints in Softcodes provide a **non-destructive, safe, and flexible way** to experiment with AI-assisted changes, compare implementations, and restore project states with confidence.

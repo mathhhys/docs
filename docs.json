@@ -55,7 +55,8 @@
               "AutoApprove",
               "SuggestedResponse",
               "ToolsWork",
-              "essentials/reusable-snippets"
+              "EnhancePrompt",
+              "Checkpoints"
             ]
           },
           {
