@@ -1,0 +1,77 @@
+---
+title: "Softcodes Tool Categories"
+description: "Softcodes organizes its capabilities into distinct tool categories, each designed for a specific type of operation."
+---
+
+| Category | Purpose                                        | Tool Names                                                        |
+| -------- | ---------------------------------------------- | ----------------------------------------------------------------- |
+| Read     | Access file content and explore code structure | read_file, search_files, list_files, list_code_definition_names   |
+| Edit     | Create or modify files and code                | write_to_file, apply_diff                                         |
+| Execute  | Run commands and perform system operations     | execute_command                                                   |
+| Browser  | Interact with web content                      | browser_action                                                    |
+| Workflow | Manage task progress and context               | ask_followup_question, attempt_completion, switch_mode, newt_task |
+
+## Example: Using Tools
+
+Here’s a typical interaction with Softcodes tools:
+
+_The tool approval interface displays “Save” and “Reject” buttons, along with an optional Auto-approve checkbox._
+
+**Scenario:** Create a file named `greeting.js` that logs a greeting message.
+
+1. **User:** Requests the file creation.
+2. **Softcodes:** Suggests using the `write_to_file` tool.
+
+```
+<write_to_file>
+<path>greeting.js</path>
+<content>
+function greet(name) {
+  console.log(`Hello, ${name}!`);
+}
+
+greet('World');
+</content>
+<line_count>5</line_count>
+</write_to_file>
+```
+
+3. **User:** Clicks **Save** in the interface.
+4. **Softcodes:** Confirms the file has been created successfully.
+
+## Tool Safety and Approval
+
+Every tool action requires your explicit confirmation. When a tool is suggested, you’ll see:
+
+- **Save** – approve and execute the tool.
+- **Reject** – decline the proposed tool.
+- **Auto-approve** – optionally allow trusted operations to run automatically.
+
+This safeguard ensures you retain control over:
+
+- Which files are created or modified
+- Which commands are executed
+- How the codebase changes
+
+Always review proposed tools carefully before approving.
+
+## Core Tools Reference
+
+| Tool Name                      | Description                                       | Category |
+| :----------------------------- | :------------------------------------------------ | :------- |
+| **read_file**                  | Reads file content with line numbers              | Read     |
+| **search_files**               | Searches files for text or regex patterns         | Read     |
+| **list_files**                 | Lists files and directories at a given path       | Read     |
+| **list_code_definition_names** | Lists code definitions (classes, functions, etc.) | Read     |
+| **write_to_file**              | Creates new files or overwrites existing ones     | Edit     |
+| **apply_diff**                 | Applies precise changes to specific sections      | Edit     |
+| **execute_command**            | Runs commands in the terminal                     | Execute  |
+| **browser_action**             | Performs operations in a headless browser         | Browser  |
+| **ask_followup_question**      | Prompts you for additional clarification          | Workflow |
+| **attempt_completion**         | Marks the task as complete                        | Workflow |
+| **switch_mode**                | Changes Softcodes to a different operational mode | Workflow |
+| **new_task**                   | Creates a subtask with a defined starting mode    | Workflow |
+
+---
+
+This format ensures **Softcodes** actions are both **transparent and safe**, while still allowing fast, efficient interaction with its tools.
