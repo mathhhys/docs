@@ -1,0 +1,152 @@
+---
+title: "Model Context Protocol (MCP) in Softcodes"
+description: "The Model Context Protocol (MCP) is a standard that extends Softcodes by connecting it to external tools and services. MCP servers provide extra functionality such as database access, API integration, and other specialized capabilities—going beyond what’s built into the core system.
+Think of MCP as a universal adapter for AI: it allows Softcodes to use tools dynamically without needing one-off integrations."
+---
+
+## How MCP Works
+
+MCP uses a **client-server model**:
+
+- Softcodes (the client) connects to MCP servers.
+- Each server provides specific capabilities (file access, API calls, data queries, etc.).
+- Communication is handled via **JSON-RPC 2.0 messages**.
+
+This setup makes MCP similar to a **USB-C port**: any compatible AI system can connect to any MCP server and gain access to its features.
+
+## Benefits of MCP
+
+- **Extensibility:** Add new tools without modifying core code.
+- **Context-awareness:** Keep track of conversations, actions, and project state across multiple tool uses.
+- **Flexibility:** Run servers locally or remotely depending on needs.
+- **Interoperability:** Standardized interface instead of dozens of separate plugin APIs.
+
+## Configuring MCP in Softcodes
+
+MCP servers can be set up at two levels:
+
+- **Global configuration**: Stored in `mcp_settings.json` (applies across all projects).
+- **Project configuration**: Stored in `.softcodes/mcp.json` (specific to a project, shareable via version control).
+
+If both exist, **project settings override global ones**.
+
+Example configuration (local server with STDIO transport):
+
+```
+{
+  "mcpServers": {
+    "local-server": {
+      "command": "node",
+      "args": ["/path/to/server.js"],
+      "env": {
+        "API_KEY": "your_api_key"
+      },
+      "alwaysAllow": ["tool1", "tool2"],
+      "disabled": false
+    }
+  }
+}
+```
+
+You can edit these settings directly from the **MCP servers tab** inside Softcodes.
+
+## MCP Transport Options
+
+MCP supports multiple ways for Softcodes to communicate with servers:
+
+### 1. **STDIO (local)**
+
+- Runs as a child process on your machine.
+- Lowest latency (no network).
+- Secure (not exposed to the internet).
+- Good for local tools or sensitive data.
+
+### 2. **Streamable HTTP (remote)**
+
+- Connects over HTTP/HTTPS.
+- Can be hosted on another machine.
+- Scales to multiple clients.
+- Useful for shared tools and central services.
+
+Example:
+
+```
+{
+  "mcpServers": {
+    "remote-server": {
+      "type": "streamable-http",
+      "url": "https://your-server-url.com/mcp",
+      "headers": {
+        "Authorization": "Bearer your-token"
+      },
+      "alwaysAllow": ["tool3"],
+      "disabled": false
+    }
+  }
+}
+```
+
+### 3. **SSE (deprecated)**
+
+Older MCP setups used Server-Sent Events (SSE). It still works, but is being phased out in favor of Streamable HTTP.
+
+## Managing MCP Servers
+
+In the Softcodes interface, you can:
+
+- **Enable/disable** servers with a toggle.
+- **Restart** a server with one click.
+- **Delete** a server from the list.
+- **Adjust timeouts** (default: 1 min, configurable 30s–5 min).
+- **Set auto-approval** for trusted tools (disabled by default).
+
+## Finding or Creating Servers
+
+Softcodes doesn’t include MCP servers by default—you add them yourself:
+
+- **Community repositories**: Many are shared on GitHub.
+- **Ask Softcodes**: It can help you find or even scaffold new servers.
+- **Build your own**: Use the official MCP SDK to create custom servers.
+
+## MCP vs REST APIs
+
+MCP is often confused with traditional REST APIs, but they serve different purposes:
+
+| Feature        | MCP                        | REST API                            |
+| :------------- | :------------------------- | :---------------------------------- |
+| State          | Maintains session context  | Stateless, each request independent |
+| Connection     | Persistent, bidirectional  | Request/response only               |
+| Tool discovery | Dynamic at runtime         | Static, predefined                  |
+| Use case       | Orchestrating tools for AI | Exposing web resources              |
+
+MCP often runs **on top of REST APIs**, turning them into dynamic, context-aware tools for AI systems.
+
+## Example Workflow
+
+Imagine you want Softcodes to:
+
+1. Check recent Git commits.
+2. Create a Jira ticket for a bug.
+3. Post an update to Slack.
+
+With REST APIs, you’d need three separate integrations, custom code to manage context, and constant upkeep if APIs change.
+
+With MCP, all of this happens through a single, standardized protocol that maintains context across the entire workflow.
+
+## Troubleshooting MCP
+
+- **Server not responding** → Check if the process is running and ports match your configuration.
+- **Permission errors** → Confirm API keys/credentials in your config files.
+- **Tool missing** → Ensure it’s enabled on the server side.
+- **Slow responses** → Adjust timeout settings or use a lighter server.
+
+## Why Softcodes Uses MCP
+
+Softcodes integrates MCP because it:
+
+- Expands functionality on demand.
+- Keeps integrations standardized.
+- Makes collaboration easier (shared project configs).
+- Provides runtime flexibility without requiring custom code.
+
+In short, **MCP doesn’t replace APIs—it unifies them**. REST remains the backend workhorse, while MCP gives Softcodes the AI-native, context-aware layer it needs.

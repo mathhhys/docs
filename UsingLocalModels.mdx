@@ -1,0 +1,40 @@
+---
+title: "Running Local Models with Softcodes"
+description: "Softcodes gives you the option to run language models directly on your own computer using tools like Ollama and LM Studio. Running models locally can be appealing for several reasons:"
+---
+
+**Advantages of local models**
+
+- **Privacy:** Your projects and data stay entirely on your machine.
+- **Offline availability:** You can continue working without needing an internet connection.
+- **Lower costs:** No cloud-based API charges.
+- **Flexibility:** Freedom to try out different models and tweak configurations.
+
+**Challenges of local models**
+
+- **Hardware demand:** Running them can be intensive, requiring a capable CPU and ideally a dedicated GPU.
+- **More setup steps:** Installing and configuring local tools is usually less straightforward than connecting to cloud APIs.
+- **Performance variation:** Some models run well, but others may fall short of the capabilities offered by large commercial cloud providers.
+- **Feature gaps:** Advanced features such as caching, tool integration, or extended memory may not always be available.
+
+### Supported Local Model Tools
+
+Softcodes works with two primary tools for managing local models:
+
+- **Ollama:** An open-source project that supports many different language models via a command-line interface.
+- **LM Studio:** A desktop app designed to make downloading, configuring, and running models easier. It also includes a local server compatible with the OpenAI API format.
+
+### Getting Started
+
+To start using local models, you can follow the setup guides provided by each tool:
+
+- Setting up **Ollama**
+- Setting up **LM Studio**
+
+Both tools offer similar core functionality, but differ in style—Ollama gives more control to advanced users via commands, while LM Studio provides a more visual, user-friendly interface.
+
+### Common Issues
+
+- **Connection errors:** If you see messages like _“No connection could be made because the target machine actively refused it”_, the local server for Ollama or LM Studio may not be running, or the base URL in Softcodes might not match.
+- **Slow generation speed:** This often happens if your hardware is underpowered or if you’re using a larger model. Switching to a smaller model may help.
+- **Model not found:** Double-check that the model name is entered correctly. For Ollama, use the same name as in your `ollama run` command.
